@@ -2,7 +2,10 @@ import SwiftUI
 
 struct MomentEntryView: View {
     var body: some View {
-        contentStack
+        ScrollView {
+            contentStack
+        }
+        .scrollDismissesKeyboard(.interactively)
     }
 
     var contentStack: some View {
