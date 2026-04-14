@@ -2,7 +2,16 @@ import SwiftUI
 
 struct MomentEntryView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        contentStack
+    }
+
+    var contentStack: some View {
+        VStack(alignment: .leading) {
+            Text("Title")
+
+            Text("Note")
+        }
+        .padding()
     }
 }
 
