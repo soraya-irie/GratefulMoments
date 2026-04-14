@@ -2,6 +2,7 @@ import SwiftUI
 
 struct MomentEntryView: View {
     @State private var title = ""
+    @State private var note = ""
 
     var body: some View {
         NavigationStack {
@@ -22,7 +23,9 @@ struct MomentEntryView: View {
             .padding(.top, 48)
             Divider()
 
-            Text("Note")
+            TextField("Log your small wins", text: $note, axis: .vertical)
+                .multilineTextAlignment(.leading)
+                .lineLimit(5...Int.max)
         }
         .padding()
     }
