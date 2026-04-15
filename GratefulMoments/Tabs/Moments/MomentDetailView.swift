@@ -7,6 +7,7 @@ struct MomentDetailView: View {
         ScrollView {
             contentStack
         }
+        .navigationTitle(moment.title)
     }
 
     private var contentStack: some View {
@@ -21,6 +22,8 @@ struct MomentDetailView: View {
 }
 
 #Preview {
-    MomentDetailView(moment: .imageSample)
-        .sampleDataContainer()
+    NavigationStack {
+        MomentDetailView(moment: .imageSample)
+            .sampleDataContainer()
+    }
 }
