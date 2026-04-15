@@ -20,11 +20,17 @@ struct MomentEntryView: View {
     private var photoPicker: some View {
         PhotosPicker(selection: $newImage) {
             Group {
-                Image(systemName: "photo.badge.plus.fill")
-                    .font(.largeTitle)
-                    .frame(height: 250)
-                    .frame(maxWidth: .infinity)
-                    .background(Color(white: 0.4, opacity: 0.32))
+                if let imageData, let uiImage = UIImage(data: imageData) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFit()
+                } else {
+                    Image(systemName: "photo.badge.plus.fill")
+                        .font(.largeTitle)
+                        .frame(height: 250)
+                        .frame(maxWidth: .infinity)
+                        .background(Color(white: 0.4, opacity: 0.32))
+                }
             }
             .clipShape(RoundedRectangle(cornerRadius: 16))
         }
