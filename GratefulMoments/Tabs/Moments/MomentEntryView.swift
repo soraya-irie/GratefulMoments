@@ -35,6 +35,7 @@ struct MomentEntryView: View {
                             // Don't dismiss
                         }
                     }
+                    .disabled(title.isEmpty)
                 }
             }
         }
