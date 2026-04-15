@@ -6,7 +6,16 @@ struct MomentsView: View {
     private var moments: [Moment]
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            pathItems
+                .frame(maxWidth: .infinity)
+        }
+    }
+
+    private var pathItems: some View {
+        ForEach(moments) { moment in
+            Text(moment.title)
+        }
     }
 }
 
