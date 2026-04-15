@@ -8,6 +8,18 @@ class DataContainer {
     }
 
     init() {
+        let schema = Schema([
+            Moment.self,
+        ])
 
+        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
+
+        do {
+            modelContainer = try ModelContainer(for: schema, configurations: [modelConfiguration])
+
+            try context.save()
+        } catch {
+            fatalError("Could not create ModelContainer: \(error)")
+        }
     }
 }
