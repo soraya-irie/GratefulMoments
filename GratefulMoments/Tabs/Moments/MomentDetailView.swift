@@ -14,7 +14,10 @@ struct MomentDetailView: View {
         VStack(alignment: .leading) {
             Text(moment.timestamp, style: .date)
                 .font(.subheadline)
-            Text("Notes")
+            if !moment.note.isEmpty {
+                Text(moment.note)
+                    .textSelection(.enabled)
+            }
             Text("Image")
         }
         .frame(maxWidth: .infinity, alignment: .leading)
