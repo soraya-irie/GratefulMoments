@@ -18,7 +18,12 @@ struct MomentDetailView: View {
                 Text(moment.note)
                     .textSelection(.enabled)
             }
-            Text("Image")
+            if let image = moment.image {
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
+                    .clipShape(RoundedRectangle(cornerRadius: 16))
+            }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
