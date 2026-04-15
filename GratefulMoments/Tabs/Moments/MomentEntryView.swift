@@ -7,6 +7,8 @@ struct MomentEntryView: View {
     @State private var imageData: Data?
     @State private var newImage: PhotosPickerItem?
 
+    @Environment(DataContainer.self) private var dataContainer
+
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -63,4 +65,5 @@ struct MomentEntryView: View {
 
 #Preview {
     MomentEntryView()
+        .sampleDataContainer()
 }
