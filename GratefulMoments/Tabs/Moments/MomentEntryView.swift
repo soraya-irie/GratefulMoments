@@ -1,4 +1,5 @@
 import SwiftUI
+import PhotosUI
 
 struct MomentEntryView: View {
     @State private var title = ""
