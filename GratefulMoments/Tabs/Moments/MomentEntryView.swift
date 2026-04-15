@@ -19,7 +19,12 @@ struct MomentEntryView: View {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Add", systemImage: "checkmark") {
-
+                        let newMoment = Moment(
+                            title: title,
+                            note: note,
+                            imageData: imageData,
+                            timestamp: .now
+                        )
                     }
                 }
             }
