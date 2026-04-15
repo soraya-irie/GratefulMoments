@@ -7,6 +7,7 @@ struct MomentEntryView: View {
     @State private var note = ""
     @State private var imageData: Data?
     @State private var newImage: PhotosPickerItem?
+    @State private var isShowingCancelConfirmation = false
 
     @Environment(\.dismiss) private var dismiss
     @Environment(DataContainer.self) private var dataContainer
@@ -19,6 +20,12 @@ struct MomentEntryView: View {
             .scrollDismissesKeyboard(.interactively)
             .navigationTitle("Grateful For")
             .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Cancel", systemImage: "xmark") {
+                        isShowingCancelConfirmation = true
+                    }
+                }
+
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Add", systemImage: "checkmark") {
                         let newMoment = Moment(
