@@ -25,6 +25,9 @@ struct MomentEntryView: View {
                 .background(Color(white: 0.4, opacity: 0.32))
                 .clipShape(RoundedRectangle(cornerRadius: 16))
         }
+        .onChange(of: newImage) {
+            guard let newImage else { return }
+        }
     }
 
     var contentStack: some View {
