@@ -1,8 +1,11 @@
 import SwiftUI
+import SwiftData
 
 struct MomentDetailView: View {
     var moment: Moment
     @State private var showConfirmation = false
+
+    @Environment(DataContainer.self) private var dataContainer
 
     var body: some View {
         ScrollView {
@@ -18,7 +21,8 @@ struct MomentDetailView: View {
                 }
                 .confirmationDialog("Delete Moment", isPresented: $showConfirmation) {
                     Button("Delete Moment", role: .destructive) {
-
+                        dataContainer.context.delete(moment)
+                        try? dataContainer.context.save()
                     }
                 } message: {
                     Text("The moment will be permanently deleted. Earned badges won't be removed.")
