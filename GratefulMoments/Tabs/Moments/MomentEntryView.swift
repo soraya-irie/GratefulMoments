@@ -15,6 +15,15 @@ struct MomentEntryView: View {
         }
     }
 
+    private var photoPicker: some View {
+        Image(systemName: "photo.badge.plus.fill")
+            .font(.largeTitle)
+            .frame(height: 250)
+            .frame(maxWidth: .infinity)
+            .background(Color(white: 0.4, opacity: 0.32))
+            .clipShape(RoundedRectangle(cornerRadius: 16))
+    }
+
     var contentStack: some View {
         VStack(alignment: .leading) {
             TextField(text: $title) {
@@ -27,6 +36,8 @@ struct MomentEntryView: View {
             TextField("Log your small wins", text: $note, axis: .vertical)
                 .multilineTextAlignment(.leading)
                 .lineLimit(5...Int.max)
+
+            photoPicker
         }
         .padding()
     }
