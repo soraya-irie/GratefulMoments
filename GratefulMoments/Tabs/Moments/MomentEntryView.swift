@@ -1,5 +1,6 @@
 import SwiftUI
 import PhotosUI
+import SwiftData
 
 struct MomentEntryView: View {
     @State private var title = ""
@@ -7,6 +8,7 @@ struct MomentEntryView: View {
     @State private var imageData: Data?
     @State private var newImage: PhotosPickerItem?
 
+    @Environment(\.dismiss) private var dismiss
     @Environment(DataContainer.self) private var dataContainer
 
     var body: some View {
@@ -25,6 +27,13 @@ struct MomentEntryView: View {
                             imageData: imageData,
                             timestamp: .now
                         )
+                        dataContainer.context.insert(newMoment)
+                        do {
+                            try dataContainer.context.save()
+                            dismiss()
+                        } catch {
+                            // Don't dismiss
+                        }
                     }
                 }
             }
