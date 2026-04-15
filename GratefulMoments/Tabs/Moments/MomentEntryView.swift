@@ -24,6 +24,11 @@ struct MomentEntryView: View {
                     Button("Cancel", systemImage: "xmark") {
                         isShowingCancelConfirmation = true
                     }
+                    .confirmationDialog("Discard Moment", isPresented: $isShowingCancelConfirmation) {
+                        Button("Discard Moment", role: .destructive) {
+
+                        }
+                    }
                 }
 
                 ToolbarItem(placement: .confirmationAction) {
