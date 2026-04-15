@@ -1,5 +1,7 @@
 import SwiftData
+import SwiftUI
 
+@MainActor
 class DataContainer {
     let modelContainer: ModelContainer
 
@@ -30,5 +32,14 @@ class DataContainer {
         for moment in Moment.sampleData {
             context.insert(moment)
         }
+    }
+}
+
+private var sampleContainer = DataContainer(includeSampleMoments: true)
+
+extension View {
+    func sampleDataContainer() -> some View {
+        self
+            .modelContainer(sampleContainer.modelContainer)
     }
 }
