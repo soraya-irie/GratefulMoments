@@ -12,7 +12,8 @@ struct MomentDetailView: View {
 
     private var contentStack: some View {
         VStack(alignment: .leading) {
-            Text("Timestamp")
+            Text(moment.timestamp, style: .date)
+                .font(.subheadline)
             Text("Notes")
             Text("Image")
         }
