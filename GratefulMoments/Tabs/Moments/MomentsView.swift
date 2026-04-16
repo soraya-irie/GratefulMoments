@@ -42,7 +42,11 @@ struct MomentsView: View {
             NavigationLink {
                 MomentDetailView(moment: moment)
             } label: {
-                Text(moment.title)
+                if moment == moments.last {
+                    MomentHexagonView(moment: moment, layout: .large)
+                } else {
+                    MomentHexagonView(moment: moment)
+                }
             }
         }
     }
