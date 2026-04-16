@@ -6,7 +6,14 @@ struct MomentHexagonView: View {
 
     var body: some View {
         Hexagon(layout: layout, moment: moment) {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            contentStack()
+        }
+    }
+
+    private func contentStack() -> some View {
+        VStack(alignment: .leading) {
+            Text(moment.title)
+                .font(layout.titleFont)
         }
     }
 }
