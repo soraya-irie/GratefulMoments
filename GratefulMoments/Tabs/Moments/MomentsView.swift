@@ -35,6 +35,8 @@ struct MomentsView: View {
                     }
                 }
             }
+            .defaultScrollAnchor(.bottom, for: .initialOffset)
+            .defaultScrollAnchor(.bottom, for: .sizeChanges)
             .navigationTitle("Grateful Moments")
         }
     }
