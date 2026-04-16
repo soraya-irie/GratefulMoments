@@ -23,6 +23,15 @@ struct MomentHexagonView: View {
                 contentStack()
                     .frame(height: layout.size * 0.80)
             }
+
+            Text(moment.timestamp.formatted(
+                .dateTime
+                    .month(.abbreviated).day()
+            ))
+            .font(.footnote)
+            .padding(.bottom, layout.size * 0.08)
+            .frame(maxWidth: layout.size / 3)
+            .frame(maxHeight: layout.timestampHeight)
         }
         .foregroundStyle(.white)
     }
