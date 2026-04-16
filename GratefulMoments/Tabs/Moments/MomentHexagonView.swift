@@ -14,7 +14,14 @@ struct MomentHexagonView: View {
         VStack(alignment: .leading) {
             Text(moment.title)
                 .font(layout.titleFont)
+            if !moment.note.isEmpty, !showImage {
+                Text(moment.note)
+                    .font(layout.bodyFont)
+            }
         }
+        .frame(maxWidth: layout.size * 0.80)
+        .frame(maxHeight: layout.size * (showImage ? 0.15 : 0.50))
+        .padding(.bottom, layout.size * layout.textBottomPadding)
     }
 
     private var showImage: Bool {
