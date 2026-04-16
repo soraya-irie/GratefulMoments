@@ -16,6 +16,12 @@ struct Hexagon<Content: View>: View {
             content()
                 .frame(width: size, height: size)
         }
+        .mask {
+            Image(systemName: "hexagon.fill")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: size, height: size)
+        }
         .frame(width: size, height: size)
     }
 }
