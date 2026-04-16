@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct Hexagon<Content: View>: View {
+    private let borderWidth = 2.0
+    var borderColor: Color = .ember
     var size: CGFloat = 350
     var moment: Moment? = nil
     @ViewBuilder var content: () -> Content
@@ -20,7 +22,14 @@ struct Hexagon<Content: View>: View {
             Image(systemName: "hexagon.fill")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
+                .frame(width: size - borderWidth, height: size - borderWidth)
+        }
+        .background {
+            Image(systemName: "hexagon")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
                 .frame(width: size, height: size)
+                .foregroundStyle(borderColor)
         }
         .frame(width: size, height: size)
     }
