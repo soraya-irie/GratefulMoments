@@ -48,6 +48,7 @@ struct MomentHexagonView: View {
         .frame(maxWidth: layout.size * 0.80)
         .frame(maxHeight: layout.size * (showImage ? 0.15 : 0.50))
         .padding(.bottom, layout.size * layout.textBottomPadding)
+        .fixedSize(horizontal: false, vertical: true)
     }
 
     private var showImage: Bool {
