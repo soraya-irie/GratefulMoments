@@ -13,6 +13,18 @@ enum HexagonLayout {
         }
     }
 
+    var timestampBottomPadding: CGFloat {
+        0.08
+    }
+
+    var textBottomPadding: CGFloat {
+        0.25
+    }
+
+    var timestampHeight: CGFloat {
+        size * (textBottomPadding - timestampBottomPadding)
+    }
+
     var titleFont: Font {
         switch self {
         case .standard:
