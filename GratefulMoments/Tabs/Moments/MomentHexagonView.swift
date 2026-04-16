@@ -6,8 +6,21 @@ struct MomentHexagonView: View {
 
     var body: some View {
         Hexagon(layout: layout, moment: moment) {
-            contentStack()
+            hexagonContent()
         }
+    }
+
+    private func hexagonContent() -> some View {
+        ZStack(alignment: .bottom) {
+            if showImage {
+                Color.clear
+                contentStack()
+            } else {
+                Color.ember
+                contentStack()
+            }
+        }
+        .foregroundStyle(.white)
     }
 
     private func contentStack() -> some View {
