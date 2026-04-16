@@ -15,9 +15,13 @@ struct MomentHexagonView: View {
             if showImage {
                 Color.clear
                 contentStack()
+                    .frame(maxWidth: .infinity)
+                    .padding(.top, 8)
+                    .background(.ultraThinMaterial)
             } else {
                 Color.ember
                 contentStack()
+                    .frame(height: layout.size * 0.80)
             }
         }
         .foregroundStyle(.white)
