@@ -23,6 +23,8 @@ class DataContainer {
             modelContainer = try ModelContainer(for: schema, configurations: [modelConfiguration])
             badgeManager = BadgeManager(modelContainer: modelContainer)
 
+            try badgeManager.loadBadgeifNeeded()
+
             if includeSampleMoments {
                 loadSampleMoments()
             }
