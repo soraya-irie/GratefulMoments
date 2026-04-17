@@ -9,10 +9,16 @@ struct BadgeDetailView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 140, height: 140)
+            Text(badge.details.title)
+                .font(.title.bold())
+            Text(badge.details.congratulatoryMessage)
+                .font(.body)
             Spacer()
         }
         .padding()
         .frame(width: 320, height: 410)
+        .multilineTextAlignment(.center)
+        .foregroundStyle(.white)
         .background(badge.details.color.opacity(0.8))
         .clipShape(RoundedRectangle(cornerRadius: 16.0))
     }
