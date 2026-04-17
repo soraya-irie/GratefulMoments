@@ -5,6 +5,10 @@ struct LockedBadgeView: View {
 
     var body: some View {
         HStack {
+            Image(badge.details.lockedImage)
+                .resizable()
+                .frame(width: 70, height: 70)
+                .padding(.trailing, 16)
             Text(badge.details.title)
         }
         .padding()
