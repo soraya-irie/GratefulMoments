@@ -15,7 +15,12 @@ class BadgeManager {
 
         var newlyUnlocked: [Badge] = []
         for badge in lockedBadges {
-            // TODO: Add badge to newlyUnlocked if earned
+            switch badge.details {
+            case .firstEntry where moments.count >= 1:
+                newlyUnlocked.append(badge)
+            default:
+                continue
+            }
         }
     }
 
