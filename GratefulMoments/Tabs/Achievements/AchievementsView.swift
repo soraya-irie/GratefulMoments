@@ -18,10 +18,10 @@ struct AchievementsView: View {
     }
 
     private var contentStack: some View {
-        VStack {
+        VStack(alignment: .leading) {
             header("Your Badges")
             ForEach(sortedUnlockedBadges) { badge in
-                Text(badge.details.title)
+                UnlockedBadgeView(badge: badge)
             }
             header("Locked Badges")
             ForEach(sortedLockedBadges) { badge in
