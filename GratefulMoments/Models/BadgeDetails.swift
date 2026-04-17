@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-enum BadgeDetails {
+enum BadgeDetails: Int, Codable, CaseIterable {
     case firstEntry
     case fiveStars
     case shutterbug
