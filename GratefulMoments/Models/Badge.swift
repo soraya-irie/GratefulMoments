@@ -1,5 +1,5 @@
 import Foundation
-import SwiftUI
+import SwiftData
 
 @Model
 class Badge {
