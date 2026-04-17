@@ -11,6 +11,7 @@ class BadgeManager {
     func unlockBadges(newMoment: Moment) throws {
         let context = modelContainer.mainContext
         let moments = try context.fetch(FetchDescriptor<Moment>())
+        let lockedBadges = try context.fetch(FetchDescriptor<Badge>(predicate: #Predicate { $0.timestamp == nil}))
     }
 
     func loadBadgeifNeeded() throws {
