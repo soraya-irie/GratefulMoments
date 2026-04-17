@@ -5,7 +5,16 @@ struct HexagonAccessoryView: View {
     let hexagonLayout: HexagonLayout
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        if let badge = badges.first {
+            Image(badge.details.image)
+                .resizable()
+                .frame(width: size, height: size)
+                .shadow(radius: 2)
+        }
+    }
+
+    private var badges: [Badge] {
+        moment.badges
     }
 
     private var size: CGFloat {
@@ -13,6 +22,7 @@ struct HexagonAccessoryView: View {
     }
 }
 
-#Preview {
+#Preview("Single badge") {
     MomentHexagonView(moment: .sample, layout: .large)
+        .sampleDataContainer()
 }
