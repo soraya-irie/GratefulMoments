@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct BadgeDetailView: View {
+struct UnlockedBadgeView: View {
     var badge: Badge
 
     var body: some View {
@@ -29,5 +29,5 @@ struct BadgeDetailView: View {
 }
 
 #Preview {
-    BadgeDetailView(badge: .sample)
+    UnlockedBadgeView(badge: .sample)
 }
