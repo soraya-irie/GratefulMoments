@@ -40,9 +40,13 @@ struct MomentDetailView: View {
                     .font(.subheadline)
                 Spacer()
                 ForEach(moment.badges) { badge in
-                    Image(badge.details.image)
-                        .resizable()
-                        .frame(width: 44, height: 44)
+                    NavigationLink {
+                        BadgeDetailView(badge: badge)
+                    } label: {
+                        Image(badge.details.image)
+                            .resizable()
+                            .frame(width: 44, height: 44)
+                    }
                 }
             }
             if !moment.note.isEmpty {
