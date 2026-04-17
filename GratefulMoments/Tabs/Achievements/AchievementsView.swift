@@ -2,8 +2,11 @@ import SwiftUI
 
 struct AchievementsView: View {
     var body: some View {
-        ScrollView {
-            contentStack
+        NavigationStack {
+            ScrollView {
+                contentStack
+            }
+            .navigationTitle("Achievements")
         }
     }
 
