@@ -6,7 +6,12 @@ struct HexagonAccessoryView: View {
 
     var body: some View {
         Group {
-            if let badge = badges.first {
+            if badges.count > 1 {
+                Text("+\(badges.count)")
+                    .bold()
+                    .frame(width: size * 0.5, height: size * 0.5)
+                    .padding(8)
+            } else if let badge = badges.first {
                 Image(badge.details.image)
                     .resizable()
                     .frame(width: size, height: size)
@@ -34,5 +39,10 @@ struct HexagonAccessoryView: View {
 
 #Preview("Single badge") {
     MomentHexagonView(moment: .sample, layout: .large)
+        .sampleDataContainer()
+}
+
+#Preview("Multiple badges") {
+    MomentHexagonView(moment: .imageSample, layout: .large)
         .sampleDataContainer()
 }
