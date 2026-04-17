@@ -17,7 +17,8 @@ class BadgeManager {
         for badge in lockedBadges {
             switch badge.details {
             case .firstEntry where moments.count >= 1,
-                    .fiveStars where moments.count >= 5:
+                    .fiveStars where moments.count >= 5,
+                    .shutterbug where moments.count(where: { $0.image != nil }) >= 3:
                 newlyUnlocked.append(badge)
             default:
                 continue
