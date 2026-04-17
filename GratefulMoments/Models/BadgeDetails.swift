@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 enum BadgeDetails {
     case firstEntry
@@ -19,6 +20,21 @@ enum BadgeDetails {
             return "Add five moments with a photo and text."
         case .perfectTen:
             return "Record at least 10 moments, collecting all the other badges along the way."
+        }
+    }
+
+    var color: Color {
+        switch self {
+        case .firstEntry:
+            return .ember
+        case .fiveStars:
+            return .ruby
+        case .shutterbug:
+            return .sapphire
+        case .expressive:
+            return .ocean
+        case .perfectTen:
+            return .ember
         }
     }
 
