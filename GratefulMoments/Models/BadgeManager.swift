@@ -7,4 +7,8 @@ class BadgeManager {
     init(modelContainer: ModelContainer) {
         self.modelContainer = modelContainer
     }
+
+    func loadBadgeifNeeded() throws {
+        let context = modelContainer.mainContext
+    }
 }
