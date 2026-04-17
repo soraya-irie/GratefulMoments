@@ -20,7 +20,7 @@ struct AchievementsView: View {
     private var contentStack: some View {
         VStack {
             Text("Your Badges")
-            ForEach(unlockedBadges) { badge in
+            ForEach(sortedUnlockedBadges) { badge in
                 Text(badge.details.title)
             }
             Text("Locked Badges")
@@ -30,6 +30,13 @@ struct AchievementsView: View {
         }
         .padding()
         .frame(maxWidth: .infinity)
+    }
+
+    /// - precondition: `unlockedBadges` must have a timestamp
+    private var sortedUnlockedBadges: [Badge] {
+        unlockedBadges.sorted {
+            ($0.timestamp!, $0.details.title) < ($1.timestamp!, $1.details.title)
+        }
     }
 
     private var sortedLockedBadges: [Badge] {
