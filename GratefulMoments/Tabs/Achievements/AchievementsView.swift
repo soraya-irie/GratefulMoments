@@ -24,12 +24,18 @@ struct AchievementsView: View {
                 Text(badge.details.title)
             }
             Text("Locked Badges")
-            ForEach(lockedBadges) { badge in
+            ForEach(sortedLockedBadges) { badge in
                 Text(badge.details.title)
             }
         }
         .padding()
         .frame(maxWidth: .infinity)
+    }
+
+    private var sortedLockedBadges: [Badge] {
+        lockedBadges.sorted {
+            $0.details.rawValue < $1.details.rawValue
+        }
     }
 }
 
