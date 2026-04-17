@@ -4,7 +4,13 @@ struct BadgeDetailView: View {
     var badge: Badge
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 8) {
+            Image(badge.details.image)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 140, height: 140)
+            Spacer()
+        }
     }
 }
 
