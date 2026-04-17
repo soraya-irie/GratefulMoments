@@ -10,5 +10,8 @@ class BadgeManager {
 
     func loadBadgeifNeeded() throws {
         let context = modelContainer.mainContext
+        var fetchDescriptor = FetchDescriptor<Badge>()
+        fetchDescriptor.fetchLimit = 1
+        let existingBadges = try context.fetch(fetchDescriptor)
     }
 }
