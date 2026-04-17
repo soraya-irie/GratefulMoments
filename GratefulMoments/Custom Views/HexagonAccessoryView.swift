@@ -11,6 +11,13 @@ struct HexagonAccessoryView: View {
                     .bold()
                     .frame(width: size * 0.5, height: size * 0.5)
                     .padding(8)
+                    .background {
+                        Image("Blank")
+                            .resizable()
+                            .frame(width: size, height: size)
+                            .shadow(radius: 2)
+                    }
+                    .foregroundStyle(.gray)
             } else if let badge = badges.first {
                 Image(badge.details.image)
                     .resizable()
