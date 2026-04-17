@@ -19,17 +19,23 @@ struct AchievementsView: View {
 
     private var contentStack: some View {
         VStack {
-            Text("Your Badges")
+            header("Your Badges")
             ForEach(sortedUnlockedBadges) { badge in
                 Text(badge.details.title)
             }
-            Text("Locked Badges")
+            header("Locked Badges")
             ForEach(sortedLockedBadges) { badge in
                 Text(badge.details.title)
             }
         }
         .padding()
         .frame(maxWidth: .infinity)
+    }
+
+    func header(_ text: String) -> some View {
+        Text(text)
+            .font(.subheadline.bold())
+            .padding()
     }
 
     /// - precondition: `unlockedBadges` must have a timestamp
