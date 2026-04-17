@@ -5,6 +5,7 @@ import SwiftUI
 @MainActor
 class DataContainer {
     let modelContainer: ModelContainer
+    var badgeManager: BadgeManager
 
     var context: ModelContext {
         modelContainer.mainContext
@@ -20,6 +21,7 @@ class DataContainer {
 
         do {
             modelContainer = try ModelContainer(for: schema, configurations: [modelConfiguration])
+            badgeManager = BadgeManager(modelContainer: modelContainer)
 
             if includeSampleMoments {
                 loadSampleMoments()
