@@ -23,6 +23,21 @@ enum BadgeDetails {
         }
     }
 
+    var title: String {
+        switch self {
+        case .firstEntry:
+            return "Start the Journey"
+        case .fiveStars:
+            return "5 Stars"
+        case .shutterbug:
+            return "Shutterbug"
+        case .expressive:
+            return "Expressive"
+        case .perfectTen:
+            return "Perfect 10"
+        }
+    }
+
     var image: ImageResource {
         switch self {
         case .firstEntry:
