@@ -13,6 +13,7 @@ class DataContainer {
     init(includeSampleMoments: Bool = false) {
         let schema = Schema([
             Moment.self,
+            Badge.self
         ])
 
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: includeSampleMoments)
