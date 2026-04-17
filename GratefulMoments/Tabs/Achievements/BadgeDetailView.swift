@@ -8,11 +8,11 @@ struct BadgeDetailView: View {
             Image(badge.details.image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 70, height: 70)
+                .frame(width: 140, height: 140)
             Text(badge.details.title)
-                .font(.headline.bold())
+                .font(.title.bold())
             Text(badge.details.congratulatoryMessage)
-                .font(.caption2.bold())
+                .font(.body)
             Spacer()
             if let timestamp = badge.timestamp {
                 Text(timestamp, style: .date)
@@ -20,7 +20,7 @@ struct BadgeDetailView: View {
             }
         }
         .padding()
-        .frame(width: 210, height: 225)
+        .frame(width: 320, height: 410)
         .multilineTextAlignment(.center)
         .foregroundStyle(.white)
         .background(badge.details.color.opacity(0.8))
