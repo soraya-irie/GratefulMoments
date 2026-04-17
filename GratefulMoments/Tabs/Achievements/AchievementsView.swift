@@ -20,9 +20,15 @@ struct AchievementsView: View {
     private var contentStack: some View {
         VStack(alignment: .leading) {
             header("Your Badges")
-            ForEach(sortedUnlockedBadges) { badge in
-                UnlockedBadgeView(badge: badge)
+            ScrollView(.horizontal) {
+                HStack {
+                    ForEach(sortedUnlockedBadges) { badge in
+                        UnlockedBadgeView(badge: badge)
+                    }
+                }
             }
+            .scrollClipDisabled()
+            .scrollIndicators(.hidden)
             header("Locked Badges")
             ForEach(sortedLockedBadges) { badge in
                 LockedBadgeView(badge: badge)
