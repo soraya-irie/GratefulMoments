@@ -8,6 +8,10 @@ class BadgeManager {
         self.modelContainer = modelContainer
     }
 
+    func unlockBadges(newMoment: Moment) throws {
+
+    }
+
     func loadBadgeifNeeded() throws {
         let context = modelContainer.mainContext
         var fetchDescriptor = FetchDescriptor<Badge>()
