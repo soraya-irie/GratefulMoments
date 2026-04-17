@@ -11,6 +11,10 @@ struct BadgeDetailView: View {
                 .frame(width: 140, height: 140)
             Spacer()
         }
+        .padding()
+        .frame(width: 320, height: 410)
+        .background(badge.details.color.opacity(0.8))
+        .clipShape(RoundedRectangle(cornerRadius: 16.0))
     }
 }
 
