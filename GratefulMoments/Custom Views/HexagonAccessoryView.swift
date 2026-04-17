@@ -5,6 +5,18 @@ struct HexagonAccessoryView: View {
     let hexagonLayout: HexagonLayout
 
     var body: some View {
+        NavigationLink {
+            if badges.count == 1 {
+                BadgeDetailView(badge: badges[0])
+            } else {
+                MomentDetailView(moment: moment)
+            }
+        } label: {
+            badgeView
+        }
+    }
+
+    private var badgeView: some View {
         Group {
             if badges.count > 1 {
                 Text("+\(badges.count)")
