@@ -4,9 +4,11 @@ import SwiftData
 @Model
 class Badge {
     var details: BadgeDetails
+    var moment: Moment?
 
     init(details: BadgeDetails) {
         self.details = details
+        self.moment = nil
     }
 }
 
