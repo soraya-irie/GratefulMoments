@@ -23,6 +23,36 @@ enum BadgeDetails {
         }
     }
 
+    var image: ImageResource {
+        switch self {
+        case .firstEntry:
+            return .firstEntryUnlocked
+        case .fiveStars:
+            return .fiveStarsUnlocked
+        case .shutterbug:
+            return .shutterbugUnlocked
+        case .expressive:
+            return .expressiveUnlocked
+        case .perfectTen:
+            return .perfectTenUnlocked
+        }
+    }
+
+    var lockedImage: ImageResource {
+        switch self {
+        case .firstEntry:
+            return .firstEntryLocked
+        case .fiveStars:
+            return .fiveStarsLocked
+        case .shutterbug:
+            return .shutterbugLocked
+        case .expressive:
+            return .expressiveLocked
+        case .perfectTen:
+            return .perfectTenLocked
+        }
+    }
+
     var color: Color {
         switch self {
         case .firstEntry:
