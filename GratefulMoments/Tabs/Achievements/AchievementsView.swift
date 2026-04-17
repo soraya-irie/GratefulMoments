@@ -2,10 +2,19 @@ import SwiftUI
 
 struct AchievementsView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        contentStack
+    }
+
+    private var contentStack: some View {
+        VStack {
+            Text("Your Badges")
+            Text("Locked Badges")
+        }
+        .padding()
     }
 }
 
 #Preview {
     AchievementsView()
+        .sampleDataContainer()
 }
