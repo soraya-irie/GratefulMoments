@@ -6,9 +6,17 @@ struct StreakCalculator {
     /// Counts the number of days in a row a moment has been saved
     ///
     /// Days are measured from the end of the day, rather than whatever time of day it is currently
+    /// - precondition: `moments` must be sorted by timestamp, from earliest to latest
     func calculateStreak(for moments: [Moment]) -> Int {
         let startOfToday = calendar.startOfDay(for: .now)
         let endOfToday = calendar.date(byAdding: DateComponents(day: 1, second: -1), to: startOfToday)!
+
+        // Ex. [0, 0, 1, 2, 4, 5]
+        let daysAgoArray = moments
+            .reversed()
+            .map(\.timestamp)
+            .map { calendar.dateComponents([.day], from: $0, to: endOfToday) }
+            .compactMap { $0.day }
 
         return 0
     }
