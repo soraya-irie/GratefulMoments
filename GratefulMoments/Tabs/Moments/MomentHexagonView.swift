@@ -3,6 +3,7 @@ import SwiftUI
 struct MomentHexagonView: View {
     var moment: Moment
     @State var layout: HexagonLayout = .standard
+    @Environment(\.locale) private var locale
 
     var body: some View {
         Hexagon(layout: layout, moment: moment) {
@@ -25,8 +26,8 @@ struct MomentHexagonView: View {
             }
 
             Text(moment.timestamp.formatted(
-                .dateTime
-                    .month(.abbreviated).day()
+                .dateTime.locale(locale)
+                .month(.abbreviated).day()
             ))
             .font(.footnote)
             .padding(.bottom, layout.size * 0.08)
@@ -63,4 +64,14 @@ struct MomentHexagonView: View {
             MomentHexagonView(moment: Moment.sample)
             MomentHexagonView(moment: Moment.sample, layout: .large)
         }
+}
+
+#Preview("English language, region Great Britian") {
+    MomentHexagonView(moment: Moment.imageSample)
+        .environment(\.locale, Locale(identifier: "en_GB"))
+}
+
+#Preview("Spanish language") {
+    MomentHexagonView(moment: Moment.imageSample)
+        .environment(\.locale, Locale(identifier: "es"))
 }
