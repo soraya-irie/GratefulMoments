@@ -8,12 +8,16 @@ struct StreakView: View {
             VStack(spacing: 0) {
                 Text("Streak \(Image(systemName: "flame.fill"))")
                     .foregroundStyle(.ember)
-                Text("\(numberOfDays)")
-                    .font(.system(size: 70))
-                Text("days")
+                Text(attributedText)
+                    .multilineTextAlignment(.center)
             }
             .font(.callout)
         }
+    }
+
+    var attributedText: AttributedString {
+        var attributedString = AttributedString(localized: "^[\(numberOfDays) \nDays](inflect: true)")
+        return attributedString
     }
 }
 
