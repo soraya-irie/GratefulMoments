@@ -17,6 +17,9 @@ struct StreakView: View {
 
     var attributedText: AttributedString {
         var attributedString = AttributedString(localized: "^[\(numberOfDays) \nDays](inflect: true)")
+        if let range = attributedString.range(of: "\(numberOfDays)") {
+            attributedString[range].font = .system(size: 70)
+        }
         return attributedString
     }
 }
