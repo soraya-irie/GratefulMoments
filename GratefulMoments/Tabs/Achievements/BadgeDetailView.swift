@@ -29,6 +29,8 @@ struct BadgeDetailView: View {
             .background(badge.details.color.opacity(0.8))
             .clipShape(RoundedRectangle(cornerRadius: 16.0))
         }
+        .scrollBounceBehavior(.basedOnSize)
+        .defaultScrollAnchor(.center, for: .alignment)
     }
 }
 
