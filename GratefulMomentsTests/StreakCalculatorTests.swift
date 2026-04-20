@@ -1,8 +1,8 @@
 import Testing
 
-struct GratefulMomentsTests {
+struct StreakCalculatorTests {
 
-    @Test func example() async throws {
+    @Test func testCalculations() async throws {
         // Write your test here and use APIs like `#expect(...)` to check expected conditions.
     }
 
