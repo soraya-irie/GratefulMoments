@@ -7,7 +7,13 @@ struct StreakCalculatorTests {
     let now = Date.now
 
     @Test func testCalculations() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
+        let days = [-2, -1]
+        let expectedStreak = 2
+
+        let moments = [Moment]()
+
+        let streak = streakCalculator.calculateStreak(for: moments)
+        #expect(streak == expectedStreak)
     }
 
 }
