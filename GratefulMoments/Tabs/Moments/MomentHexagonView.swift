@@ -64,3 +64,8 @@ struct MomentHexagonView: View {
             MomentHexagonView(moment: Moment.sample, layout: .large)
         }
 }
+
+#Preview("Spanish language") {
+    MomentHexagonView(moment: Moment.imageSample)
+        .environment(\.locale, Locale(identifier: "es"))
+}
