@@ -11,9 +11,10 @@ struct StreakCalculatorTests {
         let days: [Int]
     }
 
-    @Test func testCalculations() async throws {
-        let input = Input(expectedStreak: 2, days: [-2, -1])
-
+    @Test("Streak calculations", arguments: [
+        Input(expectedStreak: 2, days: [-2, -1])
+    ])
+    func testCalculations(input: Input) {
         let moments = input.days.map {
             let date = Calendar.current.date(byAdding: .day, value: $0, to: .now)!
             return Moment(title: "", note: "", timestamp: date)
