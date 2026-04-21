@@ -6,17 +6,21 @@ struct StreakCalculatorTests {
     let streakCalculator = StreakCalculator()
     let now = Date.now
 
-    @Test func testCalculations() async throws {
-        let days = [-2, -1]
-        let expectedStreak = 2
+    struct Input {
+        let expectedStreak: Int
+        let days: [Int]
+    }
 
-        let moments = days.map {
+    @Test func testCalculations() async throws {
+        let input = Input(expectedStreak: 2, days: [-2, -1])
+
+        let moments = input.days.map {
             let date = Calendar.current.date(byAdding: .day, value: $0, to: .now)!
             return Moment(title: "", note: "", timestamp: date)
         }
 
         let streak = streakCalculator.calculateStreak(for: moments)
-        #expect(streak == expectedStreak)
+        #expect(streak == input.expectedStreak, "\(input.days)")
     }
 
 }
