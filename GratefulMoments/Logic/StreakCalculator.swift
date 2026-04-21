@@ -22,10 +22,15 @@ struct StreakCalculator {
         var streak = 0
         for daysAgo in daysAgoArray {
             if daysAgo == streak {
+                print("Streak already here. Don't increase the streak.")
+                continue
+            } else if daysAgo == streak + 1 {
+                print("A moment exists the day after the current streak")
                 streak += 1
-                print("Increasing streak to \(streak)")
+                print("Increased streak to \(streak)")
             } else {
-                print("Didn't increase streak")
+                print("Streak of \(streak) broken with daysAgo \(daysAgo)")
+                break
             }
         }
 
