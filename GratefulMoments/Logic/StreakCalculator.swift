@@ -34,6 +34,12 @@ struct StreakCalculator {
             }
         }
 
+        // Streak is calculated above starting from yesterday. Not yet saving a moment today shouldn't break the streak.
+        // If a moment has been saved today, include it in the streak.
+        if daysAgoArray.first == 0 {
+            streak += 1
+        }
+
         return streak
     }
 }
