@@ -23,6 +23,9 @@ struct StreakCalculator {
         for daysAgo in daysAgoArray {
             if daysAgo == streak {
                 streak += 1
+                print("Increasing streak to \(streak)")
+            } else {
+                print("Didn't increase streak")
             }
         }
 
